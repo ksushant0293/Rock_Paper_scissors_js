@@ -1,5 +1,5 @@
 .border{
-    border: 2px solid red;
+    border: 1px solid red;
 }
 
 .center{
@@ -15,4 +15,6 @@
 .flex_col{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
+

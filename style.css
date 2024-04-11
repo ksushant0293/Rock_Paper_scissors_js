@@ -10,16 +10,26 @@
     width: 100vw;
     height: 100vh;
 }
-
-.game{
-    /* display: none; */
+.container img{
+    width: 80vw;
+    height: 100vh;
 }
+
+.none{
+    display: none;
+}
+
+
 .optionOne{
     display: flex;
     justify-content: space-evenly;
 }
 
-
+.left{
+    border: 1px solid blue;
+    width: 50vw;
+    height: 300;
+}
 
 .left img{
     width: 100px;
@@ -29,4 +39,10 @@
 .right img{
     width: 100px;
     height: 100px;
+}
+
+.right{
+    width: 50vw;
+    height: 300px;
+    border: 2px solid blueviolet;
 }
