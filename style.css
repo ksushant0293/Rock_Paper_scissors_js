@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family:  "Martian Mono", monospace;;
+}
+
+.main{
+    width: 100vw;
+    height: 100vh;
+}
+
+.game{
+    /* display: none; */
+}
+.optionOne{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+
+.left img{
+    width: 100px;
+    height: 100px;
+}
+
+.right img{
+    width: 100px;
+    height: 100px;
+}
