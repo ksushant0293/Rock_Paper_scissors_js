@@ -19,6 +19,8 @@ const playerCounter = document.querySelector(".playerCounter");
 const comCounter =  document.querySelector(".comCounter");
 const roundCounter = document.querySelector(".roundCounter");
 
+const nextRound = document.querySelector(".nextRound");
+
 let round = 0;
 let playerScore = 0;
 let comScore = 0;
@@ -34,7 +36,9 @@ function comDisplay(){
 function playerDisplay(){
     playerCounter.innerText = `your points : ${playerScore}`
 }
-
+function  presentDisplay(){
+    presentRound.innerText = `Round : ${round}`
+}
 function roundIncre(){
     round++;
     roundDisplay();
@@ -64,11 +68,11 @@ main.addEventListener("click", ()=>{
 
 })
 
-
+let childElements = Array.from(leftCol.children);
 
 playerRock.addEventListener("click", ()=>{
     roundIncre();
-    let childElements = Array.from(leftCol.children);
+    
     childElements.forEach(child => {
         leftCol.removeChild(child);
     });
@@ -122,7 +126,7 @@ playerRock.addEventListener("click", ()=>{
 
 playerScissors.addEventListener("click", ()=>{
     roundIncre();
-    let childElements = Array.from(leftCol.children);
+    // let childElements = Array.from(leftCol.children);
     childElements.forEach(child => {
         leftCol.removeChild(child);
     });
@@ -175,7 +179,7 @@ playerScissors.addEventListener("click", ()=>{
 
 playerPaper.addEventListener("click",()=>{
     roundIncre();
-    let childElements = Array.from(leftCol.children);
+    // let childElements = Array.from(leftCol.children);
     childElements.forEach(child => {
         leftCol.removeChild(child);
     });
@@ -224,3 +228,31 @@ playerPaper.addEventListener("click",()=>{
         playerIncre();
     }
 })
+
+nextRound.addEventListener("click", ()=>{
+    presentDisplay();
+    if(round > 4){
+        game.style.display = "none";
+    }
+    
+    console.log(leftCol.firstChild);
+    while(leftCol.firstChild){
+        leftCol.removeChild(leftCol.firstChild);
+    }
+
+
+    childElements.forEach(child => {
+        leftCol.appendChild(child);
+    });
+
+    while(rightCol.firstChild){
+        rightCol.removeChild(rightCol.firstChild);
+    }
+    rightCol.appendChild(qImg);
+
+    
+})
+
+// if(round = 6){
+//     container.style.display = "none";
+// }
