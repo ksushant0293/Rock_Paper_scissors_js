@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,46 +8,48 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="utility.css">
 </head>
+
 <body>
-<div class="main">
-    <div class="container flex">
-        <img src="./images/bg.png" alt="bg_img">
+    <div class="main">
+        <div class="container flex">
+            <img src="./images/bg.png" alt="bg_img">
+        </div>
+        <div class="game none ">
+            <h1 class="center"> Let's Play </h1>
+            <h2 class="roundCounter"> Round : 0</h2>
+            <div class=" selection ">
+                <div class="optionOne ">
+                    <h3 class="center">Choose Anyone </h3>
+                    <h3 class="center"> Computer Selection </h3>
+                </div>
+                <div class="optionOne ">
+                    <div class="left flex_col ">
+                        <img class="border player_rock" src="./images/angrock.jpg" alt="rock_img">
+                        <img class="border player_scissy" src="./images/scissy2.png" alt="scissors_img">
+                        <img class="border player_paper" src="./images/paper.jpg" alt="paper_img">
+                    </div>
+                    <div class="right flex">
+                        <img class="question_img" src="./images/question.jpg" alt="question_img">
+                    </div>
+                </div>
+            </div>
+            <h1 class=" present center">First Round</h1>
+            <div class="flex">
+                <button>next round</button>
+                <button class="reset">Reset</button>
+            </div>
+            <div class=" optionOne">
+                <h3 class="playerCounter"> Your Points : 0</h3>
+                <h3 class="comCounter"> Computer Points : 0</h3>
+            </div>
+            <div class="Final none">
+                <h1 class="center">Final Score</h1>
+                <h2></h2>
+            </div>
+        </div>
+        </div>
     </div>
-    <div class="game none ">
-        <h1 class="center"> Let's Play</h1>
-        <div class=" selection ">
-            <div class="optionOne border">
-                <h3 class="center">Choose Anyone </h3>
-                <h3 class="center"> Computer Selection </h3>
-            </div>
-            <div class="optionOne border">
-                <div class="left flex_col ">
-                    <img  class="border player_rock" src="./images/angrock.jpg" alt="rock_img">
-                    <img class="border player_scissy"  src="./images/scissy2.png" alt="scissors_img">
-                    <img class="border player_paper"  src="./images/paper.jpg" alt="paper_img">
-                </div>
-                <div class="right flex">
-                    <img class="question_img" src="./images/question.jpg" alt="question_img">
-                </div>
-            </div>
-            <div class="optionOne ">
-                <h3>win</h3>
-                <h3>loose</h3>
-            </div>       
-        </div>
-        <div class="score optionOne">
-            <h3> Your Points : 0</h3>
-            <h3> Computer Points : 0</h3>
-        </div>
-        <div class=" present none">
-            <h1 class="center">you win</h1>
-        </div>  
-        <div class="Final none">
-            <h1 class="center">Final Score</h1>
-            <h2></h2>
-        </div>     
-    </div>  
-</div>  
 </body>
 <script src="script.js"></script>
+
 </html>

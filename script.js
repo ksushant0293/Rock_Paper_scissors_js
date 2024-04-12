@@ -14,7 +14,43 @@ const playerRock = document.querySelector(".player_rock");
 const playerScissors = document.querySelector(".player_scissy");
 const playerPaper = document.querySelector(".player_paper");
 
+const presentRound = document.querySelector(".present");
+const playerCounter = document.querySelector(".playerCounter");
+const comCounter =  document.querySelector(".comCounter");
+const roundCounter = document.querySelector(".roundCounter");
 
+let round = 0;
+let playerScore = 0;
+let comScore = 0;
+
+function roundDisplay(){
+    roundCounter.innerText = `Round : ${round}`
+}
+
+function comDisplay(){
+    comCounter.innerText = `Computer points : ${comScore}`
+}
+
+function playerDisplay(){
+    playerCounter.innerText = `your points : ${playerScore}`
+}
+
+function roundIncre(){
+    round++;
+    roundDisplay();
+}
+
+function comIncre(){
+    comScore++;
+    comDisplay();
+}
+
+function playerIncre() {
+    playerScore++;
+    playerDisplay();
+}
+
+const reset = document.querySelector(".reset");
 
 function getComputerChoice() {
     let arr = ["rock", "paper", "scissors"];
@@ -29,7 +65,9 @@ main.addEventListener("click", ()=>{
 })
 
 
+
 playerRock.addEventListener("click", ()=>{
+    roundIncre();
     let childElements = Array.from(leftCol.children);
     childElements.forEach(child => {
         leftCol.removeChild(child);
@@ -53,7 +91,8 @@ playerRock.addEventListener("click", ()=>{
         rightCol.appendChild(arockImg);
         rightCol.classList.add(flex);
 
-        console.log("draw");
+        presentRound.innerText = "Draw";
+
     }else if(comChoice == "paper"){
         rightCol.removeChild(qImg);
         let papImg = document.createElement("img");
@@ -61,10 +100,10 @@ playerRock.addEventListener("click", ()=>{
         papImg.width = 200;
         papImg.height = 200;
         rightCol.appendChild(papImg);
-
         rightCol.classList.add(flex)
 
-        console.log("you loose");
+        presentRound.innerText = "You Lose! Paper beats Rock"
+        comIncre();
     }else if(comChoice == "scissors"){
         rightCol.removeChild(qImg);
         let sissyImg = document.createElement("img");
@@ -73,6 +112,115 @@ playerRock.addEventListener("click", ()=>{
         sissyImg.height = 200;
         rightCol.appendChild(sissyImg);
         rightCol.classList.add(flex)
-        console.log("you win");
+        
+        presentRound.innerText = "you win! rock beats scissors";
+        playerIncre();
+    }
+
+
+})
+
+playerScissors.addEventListener("click", ()=>{
+    roundIncre();
+    let childElements = Array.from(leftCol.children);
+    childElements.forEach(child => {
+        leftCol.removeChild(child);
+    });
+    let scImg = document.createElement("img");
+    scImg.src = "./images/scissy2.png";
+    scImg.width = 200;
+    scImg.height = 200;
+    leftCol.appendChild(scImg);
+    leftCol.classList.add(flex);
+
+    let comChoice = getComputerChoice();
+    console.log(comChoice);
+    
+    if(comChoice == "scissors"){
+        rightCol.removeChild(qImg);
+        let arockImg = document.createElement("img");
+        arockImg.src = "./images/scissy.png";
+        arockImg.width = 200;
+        arockImg.height = 200;
+        rightCol.appendChild(arockImg);
+        rightCol.classList.add(flex);
+
+        presentRound.innerText = "Draw";
+
+    }else if(comChoice == "rock"){
+        rightCol.removeChild(qImg);
+        let papImg = document.createElement("img");
+        papImg.src = "./images/rock.jpg";
+        papImg.width = 200;
+        papImg.height = 200;
+        rightCol.appendChild(papImg);
+        rightCol.classList.add(flex)
+
+        presentRound.innerText = "You Lose! rock beats scissors"
+        comIncre();
+    }else if(comChoice == "paper"){
+        rightCol.removeChild(qImg);
+        let sissyImg = document.createElement("img");
+        sissyImg.src = "./images/pap.jpg";
+        sissyImg.width = 200;
+        sissyImg.height = 200;
+        rightCol.appendChild(sissyImg);
+        rightCol.classList.add(flex)
+        
+        presentRound.innerText = "you win! scissors beats paper";
+        playerIncre();
+    }
+})
+
+
+playerPaper.addEventListener("click",()=>{
+    roundIncre();
+    let childElements = Array.from(leftCol.children);
+    childElements.forEach(child => {
+        leftCol.removeChild(child);
+    });
+    let papImg = document.createElement("img");
+    papImg.src = "./images/paper.jpg";
+    papImg.width = 200;
+    papImg.height = 200;
+    leftCol.appendChild(papImg);
+    leftCol.classList.add(flex);
+
+    let comChoice = getComputerChoice();
+    console.log(comChoice);
+    
+    if(comChoice == "paper"){
+        rightCol.removeChild(qImg);
+        let arockImg = document.createElement("img");
+        arockImg.src = "./images/pap.jpg";
+        arockImg.width = 200;
+        arockImg.height = 200;
+        rightCol.appendChild(arockImg);
+        rightCol.classList.add(flex);
+
+        presentRound.innerText = "Draw";
+
+    }else if(comChoice == "scissors"){
+        rightCol.removeChild(qImg);
+        let papImg = document.createElement("img");
+        papImg.src = "./images/scissy.png";
+        papImg.width = 200;
+        papImg.height = 200;
+        rightCol.appendChild(papImg);
+        rightCol.classList.add(flex)
+
+        presentRound.innerText = "You Lose! scissors beats paper"
+        comIncre();
+    }else if(comChoice == "rock"){
+        rightCol.removeChild(qImg);
+        let sissyImg = document.createElement("img");
+        sissyImg.src = "./images/rock.jpg";
+        sissyImg.width = 200;
+        sissyImg.height = 200;
+        rightCol.appendChild(sissyImg);
+        rightCol.classList.add(flex)
+        
+        presentRound.innerText = "you win! paper beats rock";
+        playerIncre();
     }
 })
