@@ -14,6 +14,8 @@ const playerRock = document.querySelector(".player_rock");
 const playerScissors = document.querySelector(".player_scissy");
 const playerPaper = document.querySelector(".player_paper");
 
+const finalMsg = document.querySelector(".finalMsg");
+
 const presentRound = document.querySelector(".present");
 const playerCounter = document.querySelector(".playerCounter");
 const comCounter =  document.querySelector(".comCounter");
@@ -55,6 +57,10 @@ function playerIncre() {
 }
 
 const reset = document.querySelector(".reset");
+reset.addEventListener("click", ()=>{
+    
+})
+
 
 function getComputerChoice() {
     let arr = ["rock", "paper", "scissors"];
@@ -232,9 +238,16 @@ playerPaper.addEventListener("click",()=>{
 nextRound.addEventListener("click", ()=>{
     presentDisplay();
     if(round > 4){
-        game.style.display = "none";
+        if( playerScore > comScore ){
+           finalMsg.classList.remove(none);
+        }else if( playerScore < comScore ){
+            finalMsg.innerText = "sorry! you loose"
+            finalMsg.classList.remove(none);
+        }else if(playerScore == comScore ){
+            finalMsg.innerText = "Draw! better luck next time";
+            finalMsg.classList.remove(none);
+        }
     }
-    
     console.log(leftCol.firstChild);
     while(leftCol.firstChild){
         leftCol.removeChild(leftCol.firstChild);
@@ -250,9 +263,4 @@ nextRound.addEventListener("click", ()=>{
     }
     rightCol.appendChild(qImg);
 
-    
 })
-
-// if(round = 6){
-//     container.style.display = "none";
-// }
